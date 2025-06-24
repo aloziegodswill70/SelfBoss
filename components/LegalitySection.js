@@ -24,7 +24,7 @@ export default function LegalitySection() {
 
         <div className="flex justify-center">
           <Image
-            src="/images/CAC (2).jpg"
+            src="/images/gallery16.jpeg"
             alt="Legal Documents"
             width={500}
             height={300}

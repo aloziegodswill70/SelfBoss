@@ -65,7 +65,7 @@ export default function AboutPage() {
             <li><strong>Partner:</strong> Collaborate to expand our reach and impact.</li>
           </ul>
           <p>
-            📧 Email: <Link href="mailto:info@selfbosspersonnel.co.uk" className="underline text-gold">info@selfbosspersonnel.co.uk</Link><br />
+            📧 Email: <Link href="mailto:Selfbossbiz@gmail.com" className="underline text-gold">Selfbossbiz@gmail.com</Link><br />
             📍 Locations: Aba, Abia — Nigeria<br />
             📞 Phone:  +234 7043202431
           </p>

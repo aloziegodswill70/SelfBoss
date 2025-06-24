@@ -57,7 +57,7 @@ export default function Footer() {
         {/* Contact + Social Media */}
         <div>
           <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
-          <p>Email: info@selfbosspersonnel.co.uk</p>
+          <p>Email: Selfbossbiz@gmail.com</p>
           <p>Phone: +234 7043202431</p>
           <p>Location: Aba, Abia State, Nigeria</p>
 

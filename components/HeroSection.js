@@ -9,7 +9,7 @@ export default function HeroSection() {
             Building the Future
           </h1>
           <p className="text-base sm:text-lg text-gray-300 max-w-xl">
-            SelfBoss Foundation equips young Nigerians with skills, support, and opportunities for lasting impact.
+            SelfBoss Foundation equips young Nigerians with skills, support, and opportunities for lasting impact. Selfboss Enterprising Youth Foundation as a key player in addressing the specific challenges facing Abia State, where poverty has increased over recent years. Since 2020, Selfboss foundation started without launching officially until 2024 when it was publicly launched.
           </p>
           <a
             href="#ProgramsSection"

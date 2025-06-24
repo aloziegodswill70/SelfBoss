@@ -52,7 +52,7 @@ export default function SelfBossPage() {
 
         <div className="mt-10 border-t border-gold pt-6 text-sm text-gray-300">
           <p>📍 Locations: Aba – Abia, Nigeria</p>
-          <p>📧 Email: info@selfbosspersonnel.co.uk</p>
+          <p>📧 Email: Selfbossbiz@gmail.com</p>
           <p>📞 Phone: +234 7043202431</p>
           <p>📱 Follow us on: <Link href="https://www.instagram.com/selfbossfoundation?igsh=azZ4dTljeXFjOWMx&utm_source=qr" Target="blank">Instagram</Link></p>
         </div>
