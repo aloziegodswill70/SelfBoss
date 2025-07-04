@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { signOut } from "next-auth/react";
+import { signOut } from "next-auth";
 
 export default function DashboardPage() {
   const [session, setSession] = useState(null);
