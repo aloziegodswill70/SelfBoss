@@ -1,30 +1,20 @@
-import { Geist, Geist_Mono } from "next/font/google";
+// app/layout.js
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata = {
-  title: "SelfBossYouthFoundation",
-  description: "Empowering Nigerian youth to become enterprising, innovative, and self-reliant through awareness and action.",
+  title: "SelfBoss Foundation",
+  description: "Empowering Nigerian youth...",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Navbar/>
-        {children}
-        <Footer/>
+      <body>
+          <Navbar />
+          {children}
+          <Footer />
       </body>
     </html>
   );

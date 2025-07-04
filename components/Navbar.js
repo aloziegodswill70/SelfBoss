@@ -1,15 +1,17 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const timerRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  // Smooth scroll when link is clicked
   const handleScroll = (e, targetId) => {
     e.preventDefault();
     const el = document.getElementById(targetId);
@@ -19,14 +21,37 @@ export default function Navbar() {
     }
   };
 
+  const handleLongPressStart = () => {
+    timerRef.current = setTimeout(() => {
+      router.push("/admin/register");
+    }, 1200);
+  };
+
+  const handleLongPressEnd = () => {
+    clearTimeout(timerRef.current);
+  };
+
+  const handleDoubleClick = () => {
+    clearTimeout(timerRef.current); // cancel long press if double click happens
+    router.push("/admin/login");
+  };
+
   return (
     <nav className="bg-black text-gold w-full shadow-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold">
+        <span
+          className="text-xl font-bold cursor-pointer"
+          onMouseDown={handleLongPressStart}
+          onMouseUp={handleLongPressEnd}
+          onTouchStart={handleLongPressStart}
+          onTouchEnd={handleLongPressEnd}
+          onDoubleClick={handleDoubleClick}
+        >
           SelfBoss Foundation
-        </Link>
+        </span>
 
         <div className="hidden md:flex space-x-6 font-medium">
+          <Link className="hover:text-white" href="/">Home</Link>
           <Link className="hover:text-white" href="/about">About us</Link>
           <Link className="hover:text-white" href="/past-events">Events</Link>
           <a href="#ProgramsSection" onClick={(e) => handleScroll(e, "ProgramsSection")} className="hover:text-white">
@@ -52,7 +77,9 @@ export default function Navbar() {
 
       {menuOpen && (
         <div className="md:hidden bg-black px-4 pb-4 space-y-3 text-gold font-medium">
+          <Link className="hover:text-white" href="/">Home</Link>
           <Link className="hover:text-white" href="/about">About us</Link>
+          <Link className="hover:text-white" href="/past-events">Events</Link>
           <a href="#ProgramsSection" onClick={(e) => handleScroll(e, "ProgramsSection")} className="block hover:text-white">
             Programs
           </a>

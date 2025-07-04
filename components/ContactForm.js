@@ -15,12 +15,29 @@ export default function ContactForm() {
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Message sent (placeholder)");
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setStatus("Sending...");
 
-    // Optional: remove message after a while
+    try {
+      const res = await fetch("/api/contacts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (res.ok) {
+        setStatus("✅ Message sent successfully!");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      } else {
+        const data = await res.json();
+        setStatus(`❌ ${data.error || "Failed to send message."}`);
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("❌ Server error. Please try again later.");
+    }
+
     setTimeout(() => setStatus(null), 4000);
   };
 
@@ -90,7 +107,13 @@ export default function ContactForm() {
           </button>
 
           {status && (
-            <p className="text-green-400 text-sm mt-2 text-center">{status}</p>
+            <p className="text-sm mt-2 text-center">
+              {status.startsWith("✅") ? (
+                <span className="text-green-400">{status}</span>
+              ) : (
+                <span className="text-red-400">{status}</span>
+              )}
+            </p>
           )}
         </form>
       </div>
