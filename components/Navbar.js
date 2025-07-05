@@ -1,14 +1,11 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const router = useRouter();
-  const timerRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -21,34 +18,12 @@ export default function Navbar() {
     }
   };
 
-  const handleLongPressStart = () => {
-    timerRef.current = setTimeout(() => {
-      router.push("/admin/register");
-    }, 1200);
-  };
-
-  const handleLongPressEnd = () => {
-    clearTimeout(timerRef.current);
-  };
-
-  const handleDoubleClick = () => {
-    clearTimeout(timerRef.current); // cancel long press if double click happens
-    router.push("/admin/login");
-  };
-
   return (
     <nav className="bg-black text-gold w-full shadow-md fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-        <span
-          className="text-xl font-bold cursor-pointer"
-          onMouseDown={handleLongPressStart}
-          onMouseUp={handleLongPressEnd}
-          onTouchStart={handleLongPressStart}
-          onTouchEnd={handleLongPressEnd}
-          onDoubleClick={handleDoubleClick}
-        >
+        <Link href="/" className="text-xl font-bold">
           SelfBoss Foundation
-        </span>
+        </Link>
 
         <div className="hidden md:flex space-x-6 font-medium">
           <Link className="hover:text-white" href="/">Home</Link>
