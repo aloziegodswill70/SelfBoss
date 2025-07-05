@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className="md:hidden bg-black px-4 pb-4 space-y-3 text-gold font-medium">
           <Link className="hover:text-white" href="/">Home</Link>
           <Link className="hover:text-white" href="/about">About us</Link>
-          <Link className="hover:text-white" href="/past-events">Events</Link>
+           <Link className="hover:text-white" href="/past-events">Events</Link>
           <a href="#ProgramsSection" onClick={(e) => handleScroll(e, "ProgramsSection")} className="block hover:text-white">
             Programs
           </a>
